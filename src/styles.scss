@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+$background_total: rgb(58, 12, 138);
+$background_content: rgb(99, 21, 233);
+html{
+    background-color: $background_total;
+    padding:10px; //!Rozwiazanie tymczasowe
+
+    body
+    {
+        background-color:$background_content;
+    }
+}
