@@ -5,13 +5,13 @@ import { IndexComponent } from './index/index.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  {path:'/', component:IndexComponent},
+  {path:'', redirectTo:'/index', pathMatch: 'full'},
+  {path:'index', component:IndexComponent},
   {path:'**', component:PageNotFoundComponent}
 ]
 
 @NgModule({
-  imports: [
-    CommonModule
-  ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
