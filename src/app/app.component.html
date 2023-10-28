@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-<body>
-  <nav class="w-full sticky top-0 flex space-x-4 items-center bg-custom-navbar">
+<body class="rounded-xl">
+  <nav class="w-full sticky top-0 flex space-x-4 items-center bg-custom-navbar rounded-xl">
     <div class="flex justify-start w-2/5">
       <a routerLink="/index" routerLinkActive="active" class="text-3xl m-3">WDIOU</a>
     </div>
     <div class="flex justify-end w-3/5">
       <ul class="list-none flex space-x-6 flex-row mr-4 text-xl">
         <li class=" p-2 hover:bg-navbar-hover">
-          <a routerLink="/huj" routerLinkActive="active">Jeden</a>
+          <a routerLink="/huj" routerLinkActive="active" class="hover:text-navbar-hover-text">Jeden</a>
         </li>
         <li class="p-2 hover:bg-navbar-hover">
           <a>Dwa</a>
@@ -24,7 +24,11 @@
       </ul>
     </div>
   </nav>
+
+<main class="h-full p-3">
 <router-outlet></router-outlet>
+</main>
+
 </body>
 
 </html>

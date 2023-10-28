@@ -6,9 +6,8 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        'custom-navbar': 'rgb(76, 17, 178)',
-        'navbar-hover': '#5616c4',
-        'navbar-hover-text': '#0f2a54',
+        // 'custom-navbar': 'rgb(76, 17, 178)',
+        'navbar-hover': 'rgb(85,115,75)',
       }
     },
   },
