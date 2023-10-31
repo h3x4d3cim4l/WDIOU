@@ -2,23 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-$background_total:white;
-$background_content: rgb(208,224,202);
-$background_navbar:rgb(106,143,94);
-
-$navbar_hover_text: rgb(191,212,184);
-html{
-    background-color: $background_total;
-    padding:10px; //!Rozwiazanie tymczasowe
-
-    body
-    {
-        background-color:$background_content;
-        nav{
-            background-color:$background_navbar;
-            li:hover a{
-                color:$navbar_hover_text;
-            }
-        }
-    }
-}
