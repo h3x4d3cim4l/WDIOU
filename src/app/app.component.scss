@@ -1,7 +1,7 @@
 @import '../colors.scss';
+@import '../loginformbutton.scss';
 html{
     background-color: $background_total;
-    // padding:10px; //!Rozwiazanie tymczasowe
 
     body
     {
@@ -10,12 +10,6 @@ html{
             background-color:$background_navbar;
             li:hover a{
                 color:$navbar_hover_text;
-            }
-            .login-form-button{
-                background-color: #417b53;
-            
-                border-radius: 10px;
-                padding:8px;
             }
         }
     }

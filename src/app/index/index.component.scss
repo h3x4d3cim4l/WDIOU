@@ -1,10 +1,6 @@
 @import '../../colors.scss';
-.login-form-button
-    {
-        background-color: #417b53;
-        border-radius: 10px;
-        padding:8px;
-    }
+@import '../../loginformbutton.scss';
+
 ul
 {
     background-color: $background_navbar;
