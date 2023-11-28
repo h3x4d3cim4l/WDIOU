@@ -1,0 +1,33 @@
+@import '../../loginformbutton.scss';
+@import "../../colors.scss";
+
+input.ng-touched.ng-invalid {
+    outline: 1px solid red;  
+    box-shadow: 0 0 5px red;
+}
+
+button:hover{
+    color:$navbar_hover_text;
+}
+
+input{
+    margin:8px;
+    padding:15px;
+    border-radius:10px;
+    width:100%;
+}
+input:focus{
+  outline:none;  
+}
+.login-form-button{
+    padding:10px;
+    width:50%;
+}
+
+.button-disabled{
+    background-color:gray;
+ 
+}
+.button-disabled:hover{
+    color:black;
+}

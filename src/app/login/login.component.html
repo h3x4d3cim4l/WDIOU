@@ -1,0 +1,27 @@
+<main class="flex justify-center items-center h-full flex-col">
+    <h1 class="text-5xl mb-5">Logowanie</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="flex flex-col w-1/4 items-center">
+        
+        <input type="email" id="email" formControlName="email" placeholder="*E-mail">
+
+        <input type="password" id="password" formControlName="password" placeholder="*Hasło">
+
+        <button type="submit" class="login-form-button hover:bg-navbar-hover m-5" [disabled]="loginForm.invalid" [class.button-disabled]="loginForm.invalid">Zaloguj</button>
+
+    <div *ngIf="requiredGroupError()" style="color:red">
+        * - Pole wymagane
+    </div> 
+
+    <div *ngIf="loginForm.get('email').hasError('email') && loginForm.get('email').touched" style="color:red">
+        Nieprawidłowy adres E-mail
+    </div>
+
+    <!-- <div *ngIf="loginForm.get('password').hasError('minlength') && loginForm.get('password').touched" style="color:red">
+        Hasło musi mieć minimum 6 znaków
+    </div> -->
+
+
+    </form>
+</main>
+
+

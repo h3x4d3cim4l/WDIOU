@@ -1,0 +1,28 @@
+<main class="flex justify-center items-center h-full flex-col">
+    <h1 class="text-5xl mb-5">Zarejestruj się już dziś!</h1>
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="flex flex-col w-1/4 items-center">
+        <input type="text" id="firstName" formControlName="firstName" placeholder="*Imię">
+
+        <input type="text" id="lastName" formControlName="lastName" placeholder="*Nazwisko">
+
+        <input type="email" id="email" formControlName="email" placeholder="*E-mail">
+
+        <input type="password" id="password" formControlName="password" placeholder="*Hasło">
+
+        <button type="submit" class="login-form-button hover:bg-navbar-hover m-5" [disabled]="registrationForm.invalid" [class.button-disabled]="registrationForm.invalid">Zarejestruj</button>
+
+    <div *ngIf="requiredGroupError()" style="color:red">
+        * - Pole wymagane
+    </div> 
+
+    <div *ngIf="registrationForm.get('email').hasError('email') && registrationForm.get('email').touched" style="color:red">
+        Nieprawidłowy adres E-mail
+    </div>
+
+    <div *ngIf="registrationForm.get('password').hasError('minlength') && registrationForm.get('password').touched" style="color:red">
+        Hasło musi mieć minimum 6 znaków
+    </div>
+
+
+    </form>
+</main>
