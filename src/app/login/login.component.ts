@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-register',
@@ -9,24 +8,26 @@ import { UserService } from '../user.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private fb:FormBuilder, private _user:UserService){
+  constructor(private fb:FormBuilder){
     
   }
   loginForm: any;
+  wrongCreds:boolean = false;
 
   ngOnInit(): void {
       this.loginForm = this.fb.group({
         login: ['', [Validators.required]],
         password: ['', [Validators.required]]
       });
-
   }
+
+  
 
 
   onSubmit(){
     if (this.loginForm.valid){
-      // console.log(this.loginForm.value);
-      this._user.loginUser(this.loginForm.value.login, this.loginForm.value.password)
+      console.log(this.loginForm.value);
+     
     }
     
   }

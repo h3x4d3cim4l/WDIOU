@@ -15,13 +15,14 @@
     <div *ngIf="loginForm.get('email').hasError('email') && loginForm.get('email').touched" style="color:red">
         Nieprawidłowy adres E-mail
     </div>
-
+    <div style="color:red">Nieprawidłowy login lub hasło</div>
+    
     <!-- <div *ngIf="loginForm.get('password').hasError('minlength') && loginForm.get('password').touched" style="color:red">
         Hasło musi mieć minimum 6 znaków
     </div> -->
-
-
-    </form>
+    
+    
+</form>
 </main>
 
 
