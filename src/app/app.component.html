@@ -12,7 +12,7 @@
     </div>
 
 
-    <div class="flex justify-end w-3/5" *ngIf="isLogged()">
+    <div class="flex justify-end w-3/5" *ngIf="!isLogged()">
       <ul class="list-none flex space-x-6 flex-row mr-4 text-xl">
         <li class=" p-2 hover:bg-navbar-hover login-form-button">
           <a routerLink="/login" routerLinkActive="active" class="hover:text-navbar-hover-text">Zaloguj</a>
@@ -23,7 +23,7 @@
       </ul>
     </div>
 
-    <div class="flex justify-end w-3/5" *ngIf="!isLogged()">
+    <div class="flex justify-end w-3/5" *ngIf="isLogged()">
       <ul class="list-none flex space-x-6 flex-row mr-4 text-xl">
         <li class=" p-2 hover:bg-navbar-hover">
           <a routerLink="" routerLinkActive="active" class="hover:text-navbar-hover-text">Jeden</a>
