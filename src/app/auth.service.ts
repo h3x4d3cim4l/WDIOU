@@ -16,13 +16,7 @@ export class AuthService {
 
   
   getUser(username:string){
-    try{
       return this.http.get<User>(this.API_URL+username);
-    }
-    catch(err){
-      console.log(err);
-      return err;
-    }
   }
 
   
