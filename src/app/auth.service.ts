@@ -10,13 +10,20 @@ export class AuthService {
 
   PORT:number = 5000;
   API_URL:string = `http://localhost:${this.PORT}/api/users/`;
-  usersArray:any = 0;
-
+  userSession:string|number = 0;
   constructor(private http:HttpClient) { }
 
   
   getUser(username:string){
       return this.http.get<User>(this.API_URL+username);
+  }
+
+
+  setUserSession(username:string){
+    this.userSession = username;
+  }
+  getUserSession(){
+    return this.userSession;
   }
 
   

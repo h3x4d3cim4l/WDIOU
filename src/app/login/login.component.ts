@@ -27,26 +27,16 @@ export class LoginComponent implements OnInit {
   
   login(username:string, password:string):void{
     let obs = this._auth.getUser(username) as Observable<User>;
-    // obs.subscribe(user=>{
-    //   if(user){
-    //     if(user.username === username && user.password === password){
-    //       console.log("Login sucessc: ",user);
-    //       this.wrongCreds = false;
-    //     }
-    //     else{
-    //       this.wrongCreds = true;
-    //     }
-    //   }
-
-      
-    // })
+    
     obs.subscribe({
       next:(user) => {
         if(user){
           if(user.username === username && user.password === password)
           {
-            console.log("Login sucessc: ",user);
+            this._auth.setUserSession(user.username);
             this.wrongCreds = false
+            console.log("Login sucessc: ",this._auth.getUserSession());
+            
           }
           else
           {
