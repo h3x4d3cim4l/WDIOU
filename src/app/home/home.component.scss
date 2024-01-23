@@ -1,0 +1,6 @@
+@import '../../loginformbutton.scss';
+@import '../../colors.scss';
+
+button:hover{
+    color:$navbar-hover-text;
+}

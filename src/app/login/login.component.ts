@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 import { AuthService } from '../auth.service';
 import { Observable } from 'rxjs';
 import { User } from '../Models/User';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,7 @@ import { User } from '../Models/User';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private fb:FormBuilder, private _auth:AuthService){
+  constructor(private fb:FormBuilder, private _auth:AuthService, private router:Router){
     
   }
   loginForm: any;
@@ -36,6 +37,7 @@ export class LoginComponent implements OnInit {
             this._auth.setUserSession(user.username);
             this.wrongCreds = false
             console.log("Login sucessc: ",this._auth.getUserSession());
+            this.router.navigate(['/home'])
             
           }
           else

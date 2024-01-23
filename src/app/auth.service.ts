@@ -26,6 +26,9 @@ export class AuthService {
     return this.cookieService.get("session");
   }
 
+  logoutUserSession(){
+    this.cookieService.delete("session");
+  }
   
 
 }
