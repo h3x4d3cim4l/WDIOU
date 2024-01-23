@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from './Models/User';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,7 @@ export class AuthService {
 
   PORT:number = 5000;
   API_URL:string = `http://localhost:${this.PORT}/api/users/`;
-  userSession:string|number = 0;
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private cookieService:CookieService) { }
 
   
   getUser(username:string){
@@ -20,10 +20,10 @@ export class AuthService {
 
 
   setUserSession(username:string){
-    this.userSession = username;
+    this.cookieService.set("session", username);
   }
   getUserSession(){
-    return this.userSession;
+    return this.cookieService.get("session");
   }
 
   
