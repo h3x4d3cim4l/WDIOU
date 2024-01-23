@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,11 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(){
+  constructor(private _auth:AuthService){
 
   }
   isLogged():boolean{
-    return false;
+    return this._auth.getUserSession()!="";
   }
   title = 'WDIOU';
 }
