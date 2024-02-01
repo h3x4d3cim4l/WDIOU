@@ -6,13 +6,14 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
+import { authGuard } from './auth.guard';
 
 const routes: Routes = [
   {path:'', redirectTo:'/index', pathMatch: 'full'},
   {path:'index', component:IndexComponent},
   {path:'login', component:LoginComponent},
   {path:'register', component:RegisterComponent},
-  {path:'home', component:HomeComponent},
+  {path:'home', component:HomeComponent, canActivate:[authGuard]},
   {path:'**', component:PageNotFoundComponent}
 ]
 
