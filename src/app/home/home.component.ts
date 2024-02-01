@@ -14,8 +14,4 @@ export class HomeComponent {
     return this._auth.getUserSession();
   }
 
-  logout(){
-    this._auth.logoutUserSession();
-    this.router.navigate(["/"])
-  }
 }
