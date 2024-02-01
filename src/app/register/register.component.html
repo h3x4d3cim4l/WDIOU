@@ -25,6 +25,13 @@
         Hasło musi mieć minimum 6 znaków
     </div>
 
-
+   
+    
+    <div *ngIf="showUsedUsernameError" class="text-red-500">
+        Istnieje już konto o takiej nazwie uzytkownika, spróbuj ponownie z inną.
+    </div>
+    <div *ngIf="showUsedEmailError" class="text-red-500">
+        Podany adres email został już przypisany do konta, spróbuj ponownie z innym adresem
+    </div>
     </form>
 </main>

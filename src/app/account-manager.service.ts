@@ -1,25 +1,53 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from './Models/User';
+import { usedEmail } from './Models/usedEmail';
+import { filter, map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountManagerService {
 
-  constructor(private http:HttpClient) { }
+  usedEmails_URL:string;
+  users_URL:string;
+  PORT:number = 5000;
 
-  checkEmailAvailability(email:string){
-    //TODO GET usedEmails Array from api and compare, if inside, return false, else true
+  constructor(private http:HttpClient, private router:Router) {
+    this.usedEmails_URL = `http://localhost:${this.PORT}/api/usedEmails/`;
+    this.users_URL = `http://localhost:${this.PORT}/api/users`;
+   }
+
+  checkEmailAvailability(femail:string){
+    return this.http.get<usedEmail[]>(this.usedEmails_URL).pipe(
+      map((response)=>{
+        const foundEmail = response.find(email=>email.email == femail)
+        return !foundEmail;
+      })
+    )
   }
 
   checkUsernameAvailability(username:string){
-    //TODO GET usery from api, if exists, return false, else true
+    return this.http.get<User[]>(this.users_URL).pipe(
+      map(response=>{
+        const foundUser = response.find(user=>user.username == username)
+        return !foundUser;
+      })
+    )
   }
 
   createAccount(user:User){
     //TODO POST user info into users and email into usedEmails
+    this.http.post(this.users_URL, user).subscribe({next: val=>console.log(val), error: err=>{console.error(err.message)}})
+    this.router.navigate(["/login"])
   }
+
+  deleteAccount(user:User){
+    //TODO DELETE user info from users and email from usedEmails
+  }
+
+  
 
 
 }
