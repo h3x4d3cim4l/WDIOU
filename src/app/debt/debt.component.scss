@@ -1,0 +1,14 @@
+@import "../../loginformbutton.scss";
+
+
+td{
+    max-width: 25px;
+}
+
+.login-form-button{
+    margin:2px;
+}
+
+.login-form-button:hover{
+    background-color: #55a36d;
+}

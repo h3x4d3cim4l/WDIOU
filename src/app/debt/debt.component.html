@@ -1,0 +1,32 @@
+<div class="min-h-[25%] min-w-[25%] rounded-xl bg-gray-400 p-5 flex justify-center items-center text-center">
+<!-- <ul>
+    <li>{{name}}</li>
+    <li>{{type}}</li>
+    <li>{{value}}</li>
+    <li>{{person.name}}</li>
+</ul> -->
+    
+    <table class="w-full">
+        <tr>
+            <th>Nazwa</th>
+            <th>Rodzaj</th>
+            <th>Wartość</th>
+            <th>Typ Długu</th>
+            <th>Osoba</th>
+        </tr>
+        <tr>
+            <td>{{name}}</td>
+            <td>{{typePrintable}}</td>
+            <td>{{value}}</td>
+            <td>{{signPrintable}}</td>
+            <td>{{person.name}}</td>
+        </tr>
+    </table>
+    <div class="mt-1 bg-emerald-800 p-2 rounded-xl">
+        <button (click)="edytujDlug()" class="login-form-button">Edytuj</button>
+        
+        <button (click)="usunDlug()" class="login-form-button">Usuń</button>
+    </div>
+
+
+</div>
