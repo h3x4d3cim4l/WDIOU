@@ -7,12 +7,13 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { authGuard } from './auth.guard';
+import { loggedGuard } from './logged.guard';
 
 const routes: Routes = [
   {path:'', redirectTo:'/index', pathMatch: 'full'},
-  {path:'index', component:IndexComponent},
-  {path:'login', component:LoginComponent},
-  {path:'register', component:RegisterComponent},
+  {path:'index', component:IndexComponent, canActivate:[loggedGuard]},
+  {path:'login', component:LoginComponent, canActivate: [loggedGuard]},
+  {path:'register', component:RegisterComponent, canActivate: [loggedGuard]},
   {path:'home', component:HomeComponent, canActivate:[authGuard]},
   {path:'**', component:PageNotFoundComponent}
 ]
