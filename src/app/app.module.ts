@@ -11,6 +11,8 @@ import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { CookieService } from 'ngx-cookie-service';
+import { DebtComponent } from './debt/debt.component';
+import { DebtslistComponent } from './debtslist/debtslist.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { CookieService } from 'ngx-cookie-service';
     PageNotFoundComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    DebtComponent,
+    DebtslistComponent,
   ],
   imports: [
     BrowserModule,

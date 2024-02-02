@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { authGuard } from './auth.guard';
 import { loggedGuard } from './logged.guard';
+import { DebtslistComponent } from './debtslist/debtslist.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'/index', pathMatch: 'full'},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:'login', component:LoginComponent, canActivate: [loggedGuard]},
   {path:'register', component:RegisterComponent, canActivate: [loggedGuard]},
   {path:'home', component:HomeComponent, canActivate:[authGuard]},
+  {path:'debts', component:DebtslistComponent, canActivate:[authGuard]},
   {path:'**', component:PageNotFoundComponent}
 ]
 
