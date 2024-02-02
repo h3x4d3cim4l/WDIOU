@@ -39,7 +39,8 @@ export class AccountManagerService {
 
   createAccount(user:User){
     //TODO POST user info into users and email into usedEmails
-    this.http.post(this.users_URL, user).subscribe({next: val=>console.log(val), error: err=>{console.error(err.message)}})
+    this.http.post<User>(this.users_URL, user).subscribe({next: val=>console.log("registered user"), error: err=>{console.error(err.message)}})
+    this.http.post<usedEmail>(this.usedEmails_URL, {Id:"", email:user.email}).subscribe({next:()=>{}, error:(err)=>console.error(err.message)});
     this.router.navigate(["/login"])
   }
 
