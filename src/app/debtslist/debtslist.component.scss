@@ -24,3 +24,24 @@
     animation-name: disappear;
     animation-duration:0.5s;
 }
+
+
+.add-form-check-button
+{
+    background-color:#219e47;
+}
+
+input{
+    background:transparent;
+    border-bottom: 1px solid black;
+}
+input:focus{
+    outline:none;
+}
+
+select{
+    background:transparent;
+    }
+select:focus{
+    outline:none;
+}

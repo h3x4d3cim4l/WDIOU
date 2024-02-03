@@ -5,28 +5,27 @@
 <div class="flex items-center justify-center h-full w-full flex-col">
     <div class="flex items-center justify-center">
         <button class="login-form-button plus-button m-5" (click)="switchInput()">{{inputOn ? '-': '+'}}</button>
-        <div class="bg-emerald-400 p-5 rounded-xl m-5" [class.disap]="inputOn" *ngIf="inputOn">
-            <form>
-                Nazwa: <input type="text">
-                <select>
-                    <option>Gotowka</option>
+        <div class="bg-emerald-400 p-5 rounded-xl m-5 flex flex-col" [class.disap]="inputOn" *ngIf="inputOn">
+                Nazwa: <input type="text" [(ngModel)]="skel.name">
+                Rodzaj: <select [(ngModel)]="skel.type">
+                    <option>Gotówka</option>
                     <option>Przedmiot</option>
                 </select>
-                Wartość: <input type="number">
-                <select>
-                    <option>Do splacenia</option>
+                Wartość: <input type="number" [(ngModel)]="skel.value">
+                Typ Długu<select [(ngModel)]="skel.sign">
+                    <option>Do spłacenia</option>
                     <option>Do odebrania</option>
                 </select>
-                <select>
+                Osoba:<select [(ngModel)]="skel.person.name">
                     <option>Seba</option>
                     <option>Całka</option>
                 </select>
-            </form>
+                <button class="login-form-button m-2 add-form-check-button" (click)="submitForm()">Dodaj</button>
         </div>
     </div>
 <div class="w-1/2 min-h-[50%] bg-emerald-400 rounded-3xl p-5">
     <div *ngFor="let debt of debts" class="p-2">
-        <app-debt [Id]="debt.Id"  [name]="debt.name" [type]="debt.type" [value]="debt.value" [sign]="debt.sign" [person]="debt.person" ></app-debt>
+        <app-debt [Id]="debt.Id"  [name]="debt.name" [type]="debt.type" [value]="debt.value" [sign]="debt.sign" [person]="debt.person" (delete)="usunDlug($event)" (edit)="edytujDlug($event)" ></app-debt>
     </div>
 </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { Debt } from '../Models/Debt';
 import { Person } from '../Models/Person';
 import { Type } from '../Models/Type';
@@ -20,6 +20,9 @@ export class DebtComponent {
   typePrintable:string = "";
   signPrintable:string = "";
 
+  @Output() delete: EventEmitter<any> = new EventEmitter();
+  @Output() edit: EventEmitter<any> = new EventEmitter();
+
   ngOnInit(){
 
     if(this.type == Type.cash)
@@ -35,11 +38,11 @@ export class DebtComponent {
   }
 
   usunDlug(){
-
+    this.delete.emit(this.Id)
   }
 
   edytujDlug(){
-    
+   this.edit.emit(this.Id)
   }
 
 }
