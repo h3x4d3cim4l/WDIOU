@@ -119,4 +119,8 @@ export class DebtslistComponent {
       }
     })
   }
+
+  getDebtType(){
+    return this.skel.type;
+  }
 }
