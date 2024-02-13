@@ -62,6 +62,9 @@ export class DebtslistComponent {
 
   }
   submitForm(){
+    if(this.skel.type === Type.cash){
+      this.skel.type = this.skel.type as number;
+    }
     let newDebt:Debt|any={
       Id:this.skel.Id,
       name:this.skel.name,
