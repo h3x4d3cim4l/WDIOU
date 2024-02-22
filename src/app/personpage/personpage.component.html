@@ -1,0 +1,9 @@
+<div class="text-center h-full w-full">
+    <h1 class="text-6xl">{{personInfo.name}}</h1>
+    <div class="flex items-center justify-center m-10 rounded-xl h-full w-full">
+        <!-- <div *ngIf="debts!=0"  class="p-2 w-1/2 bg-emerald-400 rounded-3xl min-h-[50%]">
+                <app-debt *ngFor="let debt of debtsFinal" [Id]="debt.Id"  [name]="debt.name" [type]="debt.type" [value]="debt.value" [sign]="debt.sign" [personname]="debt.person_nickname" ></app-debt>
+            </div> -->
+        <app-debtcol [debts]="debtsFinal" class="min-w-[75%] min-h-[50%]"/>
+    </div>
+</div>

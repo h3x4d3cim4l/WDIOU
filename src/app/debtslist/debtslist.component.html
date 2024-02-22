@@ -17,7 +17,7 @@
                     <option>Do spłacenia</option>
                     <option>Do odebrania</option>
                 </select>
-                Osoba:<select [(ngModel)]="skel.person.name">
+                Osoba:<select [(ngModel)]="skel.personname">
                     <option>Seba</option>
                     <option>Całka</option>
                 </select>
@@ -25,8 +25,9 @@
         </div>
     </div>
 <div class="w-1/2 min-h-[50%] bg-emerald-400 rounded-3xl p-5">
-    <div *ngFor="let debt of debts" class="p-2">
-        <app-debt [Id]="debt.Id"  [name]="debt.name" [type]="debt.type" [value]="debt.value" [sign]="debt.sign" [person]="debt.person" (delete)="usunDlug($event)" (edit)="edytujDlug($event)" ></app-debt>
-    </div>
+    <!-- <div *ngFor="let debt of debts" class="p-2">
+        <app-debt [Id]="debt.Id"  [name]="debt.name" [type]="debt.type" [value]="debt.value" [sign]="debt.sign" [personname]="debt.personname" (delete)="usunDlug($event)" (edit)="edytujDlug($event)" ></app-debt>
+    </div> -->
+    <app-debtcol [debts]="debts"/>
 </div>
 </div>

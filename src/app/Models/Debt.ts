@@ -9,5 +9,5 @@ export interface Debt
     type:Type;
     value:string|number;
     sign:Sign;
-    person:Person;
+    personname:string;
 }

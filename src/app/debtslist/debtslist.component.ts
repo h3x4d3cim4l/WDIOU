@@ -22,7 +22,7 @@ export class DebtslistComponent {
       type:Type.cash,
       sign:Sign.negative,
       value:5,
-      person:{Id:"2",name:"Seba",balanceWith:-100}
+      personname:"Seba"
     },
     {
       Id:"2",
@@ -30,7 +30,7 @@ export class DebtslistComponent {
       type:Type.cash,
       sign:Sign.positive,
       value:20,
-      person:{Id:"2",name:"Całka",balanceWith:-100}
+      personname:"Całka"
     }
   ]
 
@@ -45,7 +45,7 @@ export class DebtslistComponent {
     type:"",
     value:"",
     sign:"",
-    person:{Id:"",name:"",balanceWith:0}
+    personname:""
 
   }
 
@@ -56,7 +56,7 @@ export class DebtslistComponent {
       type:"",
       value:"",
       sign:"",
-      person:{Id:"",name:"",balanceWith:10}
+      personname: ""
 
     }
 
@@ -71,7 +71,7 @@ export class DebtslistComponent {
       type:this.convertToSignOrType(this.skel.type),
       value:this.skel.value,
       sign:this.convertToSignOrType(this.skel.sign),
-      person:this.skel.person
+      personname:this.skel.personname
     }
     console.log(newDebt);
     this.usunDlug(newDebt.Id);
@@ -114,7 +114,7 @@ export class DebtslistComponent {
         this.skel.type = el.type == Type.cash ? "Gotówka" : "Przedmiot"
         this.skel.value = el.value
         this.skel.sign = el.sign == Sign.positive ? "Do odebrania" : "Do spłacenia"
-        this.skel.person = el.person;
+        this.skel.personname = el.personname;
         this.inputOn = true;
       }
     })

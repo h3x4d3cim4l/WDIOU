@@ -13,6 +13,10 @@ import { HomeComponent } from './home/home.component';
 import { CookieService } from 'ngx-cookie-service';
 import { DebtComponent } from './debt/debt.component';
 import { DebtslistComponent } from './debtslist/debtslist.component';
+import { PersonlistComponent } from './personlist/personlist.component';
+import { PersonComponent } from './person/person.component';
+import { PersonpageComponent } from './personpage/personpage.component';
+import { DebtcolComponent } from './debtcol/debtcol.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +28,10 @@ import { DebtslistComponent } from './debtslist/debtslist.component';
     HomeComponent,
     DebtComponent,
     DebtslistComponent,
+    PersonlistComponent,
+    PersonComponent,
+    PersonpageComponent,
+    DebtcolComponent,
   ],
   imports: [
     BrowserModule,

@@ -16,7 +16,7 @@ export class DebtComponent {
   @Input() type:Type = Type.empty;
   @Input() sign:Sign = Sign.empty;
   @Input() value: string|number = "";
-  @Input() person: Person = {Id:"", name: "", balanceWith:0};
+  @Input() personname: string = ""
   typePrintable:string = "";
   signPrintable:string = "";
 
