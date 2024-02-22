@@ -17,6 +17,7 @@ import { PersonlistComponent } from './personlist/personlist.component';
 import { PersonComponent } from './person/person.component';
 import { PersonpageComponent } from './personpage/personpage.component';
 import { DebtcolComponent } from './debtcol/debtcol.component';
+import { DebtpageComponent } from './debtpage/debtpage.component';
 
 @NgModule({
   declarations: [

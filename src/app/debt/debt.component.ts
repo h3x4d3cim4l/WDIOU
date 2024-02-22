@@ -17,6 +17,8 @@ export class DebtComponent {
   @Input() sign:Sign = Sign.empty;
   @Input() value: string|number = "";
   @Input() personname: string = ""
+  @Input() add_date:string = ""
+  @Input() due_date:string = ""
   typePrintable:string = "";
   signPrintable:string = "";
 

@@ -11,6 +11,7 @@ import { loggedGuard } from './logged.guard';
 import { DebtslistComponent } from './debtslist/debtslist.component';
 import { PersonlistComponent } from './personlist/personlist.component';
 import { PersonpageComponent } from './personpage/personpage.component';
+import { DebtpageComponent } from './debtpage/debtpage.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'/index', pathMatch: 'full'},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path:'debts', component:DebtslistComponent, canActivate:[authGuard]},
   {path:'personlist', component:PersonlistComponent, canActivate:[authGuard]},
   {path:'personpage/:id', component:PersonpageComponent, canActivate:[authGuard]},
+  {path:'debtpage/:id', component:DebtpageComponent, canActivate:[authGuard]},
   {path:'**', component:PageNotFoundComponent}
 ]
 

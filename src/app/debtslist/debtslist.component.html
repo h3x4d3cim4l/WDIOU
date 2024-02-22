@@ -3,7 +3,7 @@
 
 
 <div class="flex items-center justify-center h-full w-full flex-col">
-    <div class="flex items-center justify-center">
+    <!-- <div class="flex items-center justify-center">
         <button class="login-form-button plus-button m-5" (click)="switchInput()">{{inputOn ? '-': '+'}}</button>
         <div class="bg-emerald-400 p-5 rounded-xl m-5 flex flex-col" [class.disap]="inputOn" *ngIf="inputOn">
                 Nazwa: <input type="text" [(ngModel)]="skel.name">
@@ -21,10 +21,11 @@
                     <option>Seba</option>
                     <option>Całka</option>
                 </select>
+                Data oddania: <input type="date" [(ngModel)]="skel.due_date">
                 <button class="login-form-button m-2 add-form-check-button" (click)="submitForm()">Dodaj</button>
         </div>
-    </div>
-<div class="w-1/2 min-h-[50%] bg-emerald-400 rounded-3xl p-5">
+    </div> -->
+<div class="w-3/4 min-h-[50%] bg-red-400 rounded-3xl p-5">
     <!-- <div *ngFor="let debt of debts" class="p-2">
         <app-debt [Id]="debt.Id"  [name]="debt.name" [type]="debt.type" [value]="debt.value" [sign]="debt.sign" [personname]="debt.personname" (delete)="usunDlug($event)" (edit)="edytujDlug($event)" ></app-debt>
     </div> -->

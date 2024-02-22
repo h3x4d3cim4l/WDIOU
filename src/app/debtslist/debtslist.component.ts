@@ -4,6 +4,9 @@ import { DebtComponent } from '../debt/debt.component';
 import { Type } from '../Models/Type';
 import { Sign } from '../Models/Sign';
 import {v4 as uuidv4} from 'uuid';
+import { DebtService } from '../debt.service';
+import { AuthService } from '../auth.service';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-debtslist',
@@ -14,25 +17,21 @@ export class DebtslistComponent {
 
   inputOn:boolean = false;
 
-  debts:Debt[]=
-  [
-    {
-      Id:"1",
-      name:"Za cole",
-      type:Type.cash,
-      sign:Sign.negative,
-      value:5,
-      personname:"Seba"
-    },
-    {
-      Id:"2",
-      name:"Za paliwo i cos tam jeszcze blelbelbelbl",
-      type:Type.cash,
-      sign:Sign.positive,
-      value:20,
-      personname:"Całka"
-    }
-  ]
+  debts:any;
+
+
+
+  constructor(private _debtS:DebtService, private _auth:AuthService){}
+
+  ngOnInit()
+  {
+    this._debtS.getDebtsList(this._auth.getUserSession()).subscribe(
+      {
+        next: (v)=>this.debts = v,
+        error: (err)=>console.error("ERRORCNSL: "+err.message)
+      }
+    )
+  }
 
   switchInput(){
     this.inputOn = !this.inputOn;
@@ -40,24 +39,22 @@ export class DebtslistComponent {
   }
 
   skel:any={
-    Id:uuidv4(),
     name:"",
     type:"",
     value:"",
     sign:"",
-    personname:""
-
+    personname:"",
+    due_date:"",
   }
 
   clearSkel(){
       this.skel = {
-      Id:uuidv4(),
       name:"",
       type:"",
       value:"",
       sign:"",
-      personname: ""
-
+      personname: "",
+      due_date:"",
     }
 
   }
@@ -71,11 +68,11 @@ export class DebtslistComponent {
       type:this.convertToSignOrType(this.skel.type),
       value:this.skel.value,
       sign:this.convertToSignOrType(this.skel.sign),
-      personname:this.skel.personname
+      personname:this.skel.personname,
+      due_date:this.skel.due_date,
+      add_date:formatDate(new Date(), 'yyyy-MM-dd', 'en')
     }
     console.log(newDebt);
-    this.usunDlug(newDebt.Id);
-    this.debts.push(newDebt);
     this.clearSkel();
   }
 
@@ -91,34 +88,10 @@ export class DebtslistComponent {
         return Sign.positive;
       default:
         throw Error("Wrong convertion");
-
-      
     }
   }
 
-  usunDlug(id:string){
-
-    let tempDebts:Debt[] = [];
-    this.debts.map(el=>{
-      if(el.Id != id)
-        tempDebts.push(el)
-    })
-    this.debts = tempDebts;
-  }
-
-  edytujDlug(id:string){
-    this.debts.map(el=>{
-      if(el.Id == id){
-        this.skel.Id = el.Id
-        this.skel.name = el.name
-        this.skel.type = el.type == Type.cash ? "Gotówka" : "Przedmiot"
-        this.skel.value = el.value
-        this.skel.sign = el.sign == Sign.positive ? "Do odebrania" : "Do spłacenia"
-        this.skel.personname = el.personname;
-        this.inputOn = true;
-      }
-    })
-  }
+  
 
   getDebtType(){
     return this.skel.type;

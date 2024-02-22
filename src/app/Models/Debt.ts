@@ -10,4 +10,6 @@ export interface Debt
     value:string|number;
     sign:Sign;
     personname:string;
+    due_date:string;
+    add_date:string;
 }

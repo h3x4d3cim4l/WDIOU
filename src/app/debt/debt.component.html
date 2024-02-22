@@ -1,4 +1,5 @@
-<div class="min-h-[25%] min-w-[25%] rounded-xl bg-gray-400 p-5 flex justify-center items-center text-center m-5">
+<a routerLink="/debtpage/{{Id}}" routerLinkActive="active">
+    <div class="rounded-xl bg-gray-400 p-8 flex justify-center items-center text-center m-5 w-full h-full">
 <!-- <ul>
     <li>{{name}}</li>
     <li>{{type}}</li>
@@ -8,25 +9,18 @@
     
     <table class="w-full">
         <tr>
-            <th>Nazwa</th>
-            <th>Rodzaj</th>
-            <th>Wartość</th>
-            <th>Typ Długu</th>
-            <th>Osoba</th>
-        </tr>
-        <tr>
-            <td>{{name}}</td>
-            <td>{{typePrintable}}</td>
-            <td>{{value}}</td>
-            <td>{{signPrintable}}</td>
             <td>{{personname}}</td>
+            <td>{{name}}</td>
+            <td>{{value}}</td>
+            <td>{{due_date}}</td>
         </tr>
     </table>
-    <div class="mt-1 bg-emerald-800 p-2 rounded-3xl min-h-[50%]">
+    <!-- <div class="mt-1 bg-emerald-800 p-1 rounded-3xl min-h-[50%]">
         <button (click)="edytujDlug()" class="login-form-button">Edytuj</button>
         
         <button (click)="usunDlug()" class="login-form-button">Usuń</button>
-    </div>
+    </div> -->
 
 
 </div>
+</a>

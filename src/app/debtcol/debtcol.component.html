@@ -1,5 +1,7 @@
-<div class="w-full min-h-[50%] bg-emerald-400 rounded-3xl p-5">
-    <div *ngIf="debts" class="p-2">
-        <app-debt  *ngFor="let debt of debts" [Id]="debt.Id"  [name]="debt.name" [type]="debt.type" [value]="debt.value" [sign]="debt.sign" [personname]="debt.person_nickname" (delete)="usunDlug($event)" (edit)="edytujDlug($event)" ></app-debt>
+<div class="w-full h-full bg-emerald-400 rounded-3xl p-5">
+    <div *ngIf="debts" class="p-2 flex flex-wrap">
+        <div *ngFor="let debt of debts" class="w-[30%] m-2 h-full">
+            <app-debt [Id]="debt.id"  [name]="debt.name" [type]="debt.type" [value]="debt.value" [sign]="debt.sign" [personname]="debt.person_nickname" [add_date]="debt.add_date" [due_date]="debt.due_date" (delete)="usunDlug($event)" (edit)="edytujDlug($event)" ></app-debt>
+        </div>
     </div>
 </div>
