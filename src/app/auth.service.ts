@@ -9,8 +9,8 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class AuthService {
 
-  PORT:number = 5000;
-  API_URL:string = `http://localhost:${this.PORT}/api/users/`;
+  private PORT:number = 5000;
+  private API_URL:string = `http://localhost:${this.PORT}/api/users/`;
   constructor(private http:HttpClient, private cookieService:CookieService) { }
 
   

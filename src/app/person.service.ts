@@ -8,8 +8,8 @@ import { Person } from './Models/Person';
 })
 export class PersonService {
 
-  PORT = 5000;
-  API_URL = `http://localhost:${this.PORT}/api/person/`
+  private PORT = 5000;
+  private API_URL = `http://localhost:${this.PORT}/api/person/`
   constructor(private http:HttpClient) { }
 
   getPersonList(username:string):Observable<any>{

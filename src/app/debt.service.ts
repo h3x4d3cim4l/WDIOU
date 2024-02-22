@@ -8,8 +8,8 @@ import { Debt } from './Models/Debt';
 })
 export class DebtService {
 
-  PORT = 5000
-  API_URL = `http://localhost:${this.PORT}/api/debt/`;
+  private PORT = 5000
+  private API_URL = `http://localhost:${this.PORT}/api/debt/`;
   constructor(private http:HttpClient) { }
 
 
