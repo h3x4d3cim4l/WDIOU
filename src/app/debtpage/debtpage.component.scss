@@ -1,1 +1,16 @@
 @import '../../loginformbutton.scss';
+
+.login-form-button{
+    margin:5px;
+}
+
+.selected{
+    background-color: rgb(158, 195, 157);
+}
+
+.red{
+    background-color: rgb(179, 9, 9);
+}
+.red:hover{
+    background-color: rgb(241, 68, 68);
+}

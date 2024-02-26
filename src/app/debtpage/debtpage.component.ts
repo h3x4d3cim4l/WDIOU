@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { DebtService } from '../debt.service';
 import { AuthService } from '../auth.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PersonService } from '../person.service';
 import { formatDate } from '@angular/common';
 import { Debt } from '../Models/Debt'; 
@@ -14,10 +14,11 @@ import { Sign } from '../Models/Sign';
   styleUrl: './debtpage.component.scss'
 })
 export class DebtpageComponent {
-  constructor(private _debtS:DebtService, private _personS:PersonService , private _auth:AuthService, private route:ActivatedRoute){}
+  constructor(private _debtS:DebtService, private _personS:PersonService , private _auth:AuthService, private route:ActivatedRoute, private router:Router){}
   Id:any;
   debtInfo:any = {};
   isEdited:boolean = false;
+  isDeleted:boolean = false;
 
 
   ngOnInit()
@@ -33,6 +34,10 @@ export class DebtpageComponent {
 
   switchEdition():void{
     this.isEdited = !this.isEdited;
+  }
+
+  switchDeletion():void{
+    this.isDeleted = !this.isDeleted;
   }
 
   //!EDIT
@@ -138,6 +143,20 @@ convertToSignOrTypeReverse(x:string){
       due_date:this.debtInfo.due_date,
     }
 
+  }
+
+  //!DELETE
+
+  deleteDebt(){
+    let obsdel = this._debtS.deleteDebt(this.debtInfo.id, this._auth.getUserSession());
+    obsdel.subscribe(
+      {
+        next:()=>{
+          console.log("Debt deleted!")
+          this.router.navigate(["/debts"])
+        }
+      }
+    )
   }
 }
 

@@ -11,8 +11,13 @@
                 <div>{{debtInfo.add_date}}</div>
                 <div>{{debtInfo.due_date}}</div>
             </div>
-            <button class="login-form-button" (click)="switchEdition()">Edytuj</button>
-            <button class="login-form-button">Usuń</button>
+            <button class="login-form-button" (click)="switchEdition()" [class.selected]="isEdited">Edytuj</button>
+            <button class="login-form-button" (click)="switchDeletion()" [class.selected]="isDeleted">Usuń</button>
+            <div class="delete-form flex flex-col" *ngIf="isDeleted">
+                <h1 class="text-red-600">Czy na pewno chcesz usunąć?</h1>
+                <button class="login-form-button red" (click)="deleteDebt()">Usuń</button>
+                <button class="login-form-button" (click)="switchDeletion()">Anuluj</button>
+            </div>
             <div class="edit-form" *ngIf="isEdited">
                 <div class="bg-emerald-400 p-5 rounded-xl m-5 flex flex-col">
                     Nazwa: <input type="text" [(ngModel)]="skel.name">
@@ -33,6 +38,7 @@
                     <button class="login-form-button m-2 add-form-check-button" (click)="submitForm()" [disabled]="!canSubmit()" [class.button-blocked]="!canSubmit()">Edytuj</button>
                 </div>
             </div>
+
        </div> 
 
 </div>

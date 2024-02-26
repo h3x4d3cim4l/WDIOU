@@ -29,4 +29,8 @@ export class DebtService {
   editDebt(id:string,username:string, newDebt:Debt|any){
     return this.http.put<Debt>(this.API_URL+username+"/"+id, newDebt)
   }
+
+  deleteDebt(id:string, username:string){
+    return this.http.delete(this.API_URL+username+"/"+id);
+  }
 }
