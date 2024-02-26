@@ -70,7 +70,7 @@ export class DebtCreateComponent {
     let newDebt:Debt|any={
       name:this.skel.name,
       type:this.convertToSignOrType(this.skel.type),
-      value:this.skel.value,
+      value:`${this.skel.value}`,
       sign:this.convertToSignOrType(this.skel.sign),
       owner_nickname:this._auth.getUserSession(),
       person_nickname:this.skel.personname,

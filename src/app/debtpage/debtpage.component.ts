@@ -73,14 +73,12 @@ export class DebtpageComponent {
   }
 
   submitForm(){
-    if(this.skel.type === Type.cash){
-      this.skel.type = this.skel.type as number;
-    }
+    
     let newDebt:Debt|any={
       id:this.debtInfo.id,
       name:this.skel.name,
       type:this.convertToSignOrType(this.skel.type),
-      value:this.skel.value,
+      value:`${this.skel.value}`,
       sign:this.convertToSignOrType(this.skel.sign),
       owner_nickname:this._auth.getUserSession(),
       person_nickname:this.skel.person_nickname,
