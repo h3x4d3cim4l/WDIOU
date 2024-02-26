@@ -25,4 +25,8 @@ export class DebtService {
   addDebt(debt:Debt|any){
     return this.http.post<Debt>(this.API_URL,debt)
     }
+
+  editDebt(id:string,username:string, newDebt:Debt|any){
+    return this.http.put<Debt>(this.API_URL+username+"/"+id, newDebt)
+  }
 }

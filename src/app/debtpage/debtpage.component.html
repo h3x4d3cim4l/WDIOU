@@ -1,13 +1,38 @@
 <div class="h-full w-full flex justify-center items-center flex">
     
-       <div class="flex flex-col">
-           <div>{{debtInfo.name}}</div>
-           <div>{{debtInfo.type}}</div>
-           <div>{{debtInfo.value}}</div>
-           <div>{{debtInfo.sign}}</div>
-           <div>{{debtInfo.person_nickname}}</div>
-           <div>{{debtInfo.add_date}}</div>
-           <div>{{debtInfo.due_date}}</div>
+       <div class="flex flex-col bg-gray-500 p-5 rounded-3xl w-[50%] min-h-[75%] items-center">
+        <h1 class="text-8xl font-semibold italic">Dług</h1>
+            <div class="flex flex-col justify-center items-center h-full w-full text-4xl leading-relaxed">
+                <div>{{debtInfo.name}}</div>
+                <div>{{debtInfo.type}}</div>
+                <div>{{debtInfo.sign}}{{debtInfo.value}}</div>
+                
+                <div>{{debtInfo.person_nickname}}</div>
+                <div>{{debtInfo.add_date}}</div>
+                <div>{{debtInfo.due_date}}</div>
+            </div>
+            <button class="login-form-button" (click)="switchEdition()">Edytuj</button>
+            <button class="login-form-button">Usuń</button>
+            <div class="edit-form" *ngIf="isEdited">
+                <div class="bg-emerald-400 p-5 rounded-xl m-5 flex flex-col">
+                    Nazwa: <input type="text" [(ngModel)]="skel.name">
+                    Rodzaj: <select [(ngModel)]="skel.type">
+                        <option>Gotówka</option>
+                        <option>Przedmiot</option>
+                    </select>
+                    <div *ngIf="getDebtType() == 'Gotówka'">Wartość:<br> <input type="number"  [(ngModel)]="skel.value"></div>
+                    <div *ngIf="getDebtType() == 'Przedmiot'">Wartość:<br> <input type="text" [(ngModel)]="skel.value"></div>
+                    Typ Długu<select [(ngModel)]="skel.sign">
+                        <option>Do spłacenia</option>
+                        <option>Do odebrania</option>
+                    </select>
+                    Osoba:<select [(ngModel)]="skel.person_nickname">
+                        <option *ngFor="let person of personList">{{person.name}}</option>
+                    </select>
+                    Data oddania: <input type="date" [(ngModel)]="skel.due_date">
+                    <button class="login-form-button m-2 add-form-check-button" (click)="submitForm()" [disabled]="!canSubmit()" [class.button-blocked]="!canSubmit()">Edytuj</button>
+                </div>
+            </div>
        </div> 
 
 </div>
