@@ -20,4 +20,9 @@ export class DebtService {
   getDebt(username:string, id:string):Observable<Debt>{
     return this.http.get<Debt>(this.API_URL+username+"/"+id);
   }
+
+
+  addDebt(debt:Debt|any){
+    return this.http.post<Debt>(this.API_URL,debt)
+    }
 }

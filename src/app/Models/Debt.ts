@@ -9,7 +9,8 @@ export interface Debt
     type:Type;
     value:string|number;
     sign:Sign;
-    personname:string;
+    owner_nickname:string;
+    person_nickname:string;
     due_date:string;
     add_date:string;
 }
