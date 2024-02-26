@@ -4,6 +4,7 @@ import { filter, map, switchMap, tap } from 'rxjs';
 import { PersonService } from '../person.service';
 import { AuthService } from '../auth.service';
 import { DebtService } from '../debt.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-personpage',
@@ -16,7 +17,7 @@ export class PersonpageComponent {
   personInfo:any;
   debts:any = 0;
   debtsFinal:any[]=[];
-  constructor(private route:ActivatedRoute, private _personService:PersonService, private _auth:AuthService, private _debtService:DebtService){
+  constructor(private route:ActivatedRoute, private _personService:PersonService, private _auth:AuthService, private _debtService:DebtService, private location: Location){
 
     this.route.params.subscribe(params=>{
       this.nameId = params['id'];
@@ -39,5 +40,9 @@ export class PersonpageComponent {
         }
       })
     })
+  }
+
+  goBack(){
+    this.location.back();
   }
 }

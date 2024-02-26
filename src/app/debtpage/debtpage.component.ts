@@ -7,6 +7,7 @@ import { formatDate } from '@angular/common';
 import { Debt } from '../Models/Debt'; 
 import { Type } from '../Models/Type';
 import { Sign } from '../Models/Sign';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-debtpage',
@@ -14,7 +15,7 @@ import { Sign } from '../Models/Sign';
   styleUrl: './debtpage.component.scss'
 })
 export class DebtpageComponent {
-  constructor(private _debtS:DebtService, private _personS:PersonService , private _auth:AuthService, private route:ActivatedRoute, private router:Router){}
+  constructor(private _debtS:DebtService, private _personS:PersonService , private _auth:AuthService, private route:ActivatedRoute, private location: Location){}
   Id:any;
   debtInfo:any = {};
   isEdited:boolean = false;
@@ -153,10 +154,17 @@ convertToSignOrTypeReverse(x:string){
       {
         next:()=>{
           console.log("Debt deleted!")
-          this.router.navigate(["/debts"])
+          this.goBack()
         }
       }
     )
+  }
+
+  //!GOBACK
+
+  goBack()
+  {
+    this.location.back();
   }
 }
 
