@@ -1,0 +1,7 @@
+<div class="flex items-center justify-center">
+        <button class="login-form-button plus-button m-5" (click)="switchInput()">{{inputOn ? '-': '+'}}</button>
+        <div class="bg-emerald-400 p-5 rounded-xl m-5 flex flex-col" [class.disap]="inputOn" *ngIf="inputOn">
+                Nazwa: <input type="text" [(ngModel)]="skel">
+                <button class="login-form-button m-2 add-form-check-button" (click)="onSubmit()" [disabled]="!canSubmit()" [class.button-blocked]="!canSubmit()">Dodaj</button>
+        </div>
+    </div>

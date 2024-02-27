@@ -19,6 +19,7 @@ import { PersonpageComponent } from './personpage/personpage.component';
 import { DebtcolComponent } from './debtcol/debtcol.component';
 import { DebtpageComponent } from './debtpage/debtpage.component';
 import { DebtCreateComponent } from './debt-create/debt-create.component';
+import { PersonCreateComponent } from './person-create/person-create.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { DebtCreateComponent } from './debt-create/debt-create.component';
     DebtcolComponent,
     DebtpageComponent,
     DebtCreateComponent,
+    PersonCreateComponent,
   ],
   imports: [
     BrowserModule,

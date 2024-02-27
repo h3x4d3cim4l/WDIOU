@@ -15,6 +15,7 @@ export class PersonlistComponent {
   constructor(private _personService:PersonService, private _auth:AuthService){}
 listobs:any;
 list:any;
+isNameTaken:boolean = false;
   
   ngOnInit(){
     this.listobs = this._personService.getPersonList(this._auth.getUserSession());
@@ -23,5 +24,17 @@ list:any;
       console.log(v)
       this.list = v;
     })
+  }
+  
+
+  onPersonSubmitted(){
+    this.ngOnInit()
+    this.nameFree()
+  }
+  nameTaken(){
+    this.isNameTaken = true
+  }
+  nameFree(){
+    this.isNameTaken = false;
   }
 }

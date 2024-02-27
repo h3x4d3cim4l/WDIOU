@@ -1,5 +1,7 @@
 <div class="flex justify-center items-center h-full w-full flex-col">
 
+    <app-person-create (onPersonSubmitted)="onPersonSubmitted()" (onPersonNameTaken)="nameTaken()"/>
+    <div *ngIf="isNameTaken" class="text-red-500">Nazwa osoby zajęta</div>
     <div *ngFor="let item of list">
     <app-person [name]="item.name" [Id]="item.id"/>
     </div>

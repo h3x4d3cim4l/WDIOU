@@ -1,0 +1,18 @@
+@import '../../loginformbutton.scss';
+@import '../debt-create/debt-create.component.scss';
+
+@keyframes disappear{
+    from{ 
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to{ 
+        transform:translateX(0%);
+        opacity:1;
+    }
+}
+
+.disap{
+    animation-name: disappear;
+    animation-duration:0.5s;
+}
