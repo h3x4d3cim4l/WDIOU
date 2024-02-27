@@ -24,9 +24,9 @@ export class PersonService {
     return this.http.post<Person>(this.API_URL,person);
   }
 
-  editPerson(username:string, personname:string, newPerson:Person|any){
-    return this.http.put<Person>(this.API_URL+username+"/"+personname,newPerson);
-  }
+  // editPerson(username:string, personname:string, newPerson:Person|any){
+  //   return this.http.put<Person>(this.API_URL+username+"/"+personname,newPerson);
+  // }
 
   deletePerson(username:string, personname:string){
     return this.http.delete(this.API_URL+username+"/"+personname);
