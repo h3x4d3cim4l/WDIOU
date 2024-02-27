@@ -40,6 +40,7 @@ export class PersonCreateComponent
           next:()=>{
             this.clearSkel()
             this.onPersonSubmitted.emit();
+            this.switchInput();
           },
           error: (err)=>console.log(err.message)
         })
