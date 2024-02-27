@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Debt } from './Models/Debt';
 
 @Injectable({
@@ -32,5 +32,15 @@ export class DebtService {
 
   deleteDebt(id:string, username:string){
     return this.http.delete(this.API_URL+username+"/"+id);
+  }
+
+  deletePersonDebt(username:string, personname:string){
+    this.getDebtsList(username).subscribe((list)=>{
+      list.map((debt:any)=>{
+        if(debt.person_nickname == personname){
+          this.deleteDebt(debt.id,username).subscribe();
+        }
+      })
+    })
   }
 }

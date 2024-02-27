@@ -66,6 +66,7 @@ export class PersonpageComponent {
       next:()=>{
         console.log("Person deleted!")
         //!DeleteALlPersonDebts
+        this._debtService.deletePersonDebt(this._auth.getUserSession(),this.nameId);
         this.goBack();
       }
     })
